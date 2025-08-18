@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Archivo", sans-serif;
+            background-color: #f5f8fa;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+            color: #04285b;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #00b3d0;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h2 {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .header img {
+            max-width: 65px;
+            height: auto;
+            margin-right: 25px;
+            filter: brightness(0) invert(1);
+        }
+
+        .content {
+            padding: 25px 40px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .full-width {
+            width: 100%;
+            text-align: center;
+            color: #04285b;
+            background: rgba(221, 221, 221, .2);
+        }
+
+        .img-container {
+            text-align: center;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .cta-button {
+            display: block;
+            width: fit-content;
+            background-color: #00b3d0;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #04285b;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .footer span {
+            font-size: 16px;
+            color: #00b3d0;
+            margin: 0 15px;
+        }
+
+        @media (max-width: 480px) {
+            .header h2 {
+                font-size: 18px;
+            }
+            .content {
+                padding: 20px;
+            }
+            .cta-button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/The_Mount_Sinai_Hospital.png" alt="Clinic Logo">
+            <h2>Your Doctor's Appointment is Booked!</h2>
+        </div>
+        <div class="content">
+            <p>Dear <strong>{patientName}</strong>,</p>
+            <p>We are pleased to confirm your appointment with <strong>Dr. Thomas Reed</strong> at <strong>Mount Sinai Hospital</strong>.</p>
+            <table class="table">
+                <tr>
+                    <th colspan="2" class="full-width">Appointment Details</th>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{appointmentDate}</td>
+                </tr>
+                <tr>
+                    <th>Time</th>
+                    <td>{appointmentTime}</td>
+                </tr>
+                <tr>
+                    <th>Doctor</th>
+                    <td>Dr. Thomas Reed</td>
+                </tr>
+                <tr>
+                    <th>Mode of Visit</th>
+                    <td>{modeOfVisit}</td>
+                </tr>
+                <tr>
+                    <th>Location </th>
+                    <td>{location}</td>
+                </tr>
+                <tr>
+                    <th>Referred Doctor</th>
+                    <td>Dr. Sarah Williams</td>
+                </tr>
+            </table>
+            <div class="img-container">
+                <img src="https://img.freepik.com/free-photo/senior-doctor-talking-with-patient-office_23-2147896638.jpg" alt="Doctor and patient" />
+            </div>
+            <p>Please take a moment to fill out our Patient Intake Form to provide us with necessary information. This will help us prepare for your visit and ensure smooth communication.</p>
+            <p><a href="#" class="cta-button">Fill Out the Patient Intake Form</a></p>
+            <p>For teleconsultation or video call appointments, please be available on your device at the scheduled time. For in-person visits, kindly arrive at least 10 minutes early.</p>
+            <p>If you need to reschedule or cancel, please inform us at least 24 hours in advance.</p>
+            <p>For any questions or additional information, feel free to contact us at <br><strong><a href="tel:+15550101234">(555) 010-1234</a></strong> or <strong><a href="mailto:feedback@mountsinai.net">feedback@mountsinai.net</a></strong></p>
+            <p>Thank you for choosing <strong>Mount Sinai Hospital</strong>. We look forward to seeing you soon.</p>
+        </div>
+        <div class="footer">
+            <p><strong><a href="#">www.mountsinaihospital.com</a></strong> <span>|</span> <strong><a href="#">View Map Location</a></strong></p>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing styles */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/The_Mount_Sinai_Hospital.png" alt="Clinic Logo">
+            <h2>Your Doctor's Appointment is Booked!</h2>
+        </div>
+        <div class="content">
+            <p>Dear {{patientName}},</p>
+            <p>We are pleased to confirm your appointment with <strong>{{doctorName}}</strong> at <strong>Mount Sinai Hospital</strong>.</p>
+            <table class="table">
+                <tr>
+                    <th colspan="2" class="full-width">Appointment Details</th>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{appointmentDate}}</td>
+                </tr>
+                <tr>
+                    <th>Time</th>
+                    <td>{{appointmentTime}}</td>
+                </tr>
+                <tr>
+                    <th>Doctor</th>
+                    <td>{{doctorName}}</td>
+                </tr>
+                <tr>
+                    <th>Mode of Visit</th>
+                    <td>In-person</td>
+                </tr>
+                <tr>
+                    <th>Location (for in-person visits)</th>
+                    <td>Arena Hosptial</td>
+                </tr>
+                <tr>
+                    <th>Referred Doctor</th>
+                    <td>Dr.Elsa</td>
+                </tr>
+            </table>
+            <div class="img-container">
+                <img src="https://img.freepik.com/free-photo/senior-doctor-talking-with-patient-office_23-2147896638.jpg" alt="Doctor and patient" />
+            </div>
+            <p>Please take a moment to fill out our Patient Intake Form to provide us with necessary information. This will help us prepare for your visit and ensure smooth communication.</p>
+            <p><a href="#" class="cta-button">Fill Out the Patient Intake Form</a></p>
+            <p>For teleconsultation or video call appointments, please be available on your device at the scheduled time. For in-person visits, kindly arrive at least 10 minutes early.</p>
+            <p>If you need to reschedule or cancel, please inform us at least 24 hours in advance.</p>
+            <p>For any questions or additional information, feel free to contact us at <br><strong><a href="tel:+15550101234">(555) 010-1234</a></strong> or <strong><a href="mailto:feedback@mountsinai.net">feedback@mountsinai.net</a></strong></p>
+            <p>Thank you for choosing <strong>Mount Sinai Hospital</strong>. We look forward to seeing you soon.</p>
+        </div>
+        <div class="footer">
+            <p><strong><a href="#">www.mountsinaihospital.com</a></strong> <span>|</span> <strong><a href="#">View Map Location</a></strong></p>
+        </div>
+    </div>
+</body>
+</html> -->

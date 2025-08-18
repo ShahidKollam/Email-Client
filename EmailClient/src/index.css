@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  background-color: #0b083c;
+  padding: 0;
+  margin: 0;
+}
+/* Apply to the scrollable container */
+.hide-scrollbar {
+  overflow-y: scroll; /* Keep scrolling enabled */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #a7c8ef transparent; /* For Firefox: Thumb color and track hidden */
+}
+
+/* For Chrome, Safari, and Edge */
+.hide-scrollbar::-webkit-scrollbar {
+  width: 4px; /* Thin vertical scrollbar */
+  height: 4px; /* Thin horizontal scrollbar */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #4a90e2; /* Smooth blue for the thumb */
+  border-radius: 20px; /* Very rounded corners for a modern look */
+  border: 2px solid transparent; /* Transparent border to create space around the thumb */
+  background-clip: content-box; /* Ensure thumb doesn't overlap the border */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); /* Inner shadow for the thumb */
+  transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for the scrollbar thumb */
+.hide-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #003366; /* Darker blue when hovered */
+  transform: scale(1.2); /* Slightly enlarge the thumb */
+}
+
+/* Hide the scrollbar track (background area) */
+.hide-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent; /* Make the track fully transparent */
+}
+
+/* Smooth scrolling behavior */
+.hide-scrollbar {
+  scroll-behavior: smooth; /* Smooth scrolling when user scrolls */
+}

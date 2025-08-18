@@ -1,0 +1,80 @@
+#gjs {
+  flex: 4;
+  height: 80%;
+  box-sizing: border-box;
+}
+
+#blocks {
+  height: 85vh;
+  background-color: rgb(7, 7, 7);
+}
+
+.gjs-cv-canvas {
+  height: 77vh;
+  width: 100%;
+  border: 1px dashed rgb(255, 0, 0);
+}
+.gjs-blocks-cs,
+.gjs-block {
+  background-color: rgb(36, 35, 35);
+}
+.panel__style {
+  height: 85vh;
+  background-color: rgb(7, 7, 7);
+  overflow-y: auto;
+}
+.gjs-sm-sectors {
+  background-color: rgb(36, 35, 35);
+}
+
+.gjs-pn-panel {
+  display: block;
+  width: 350px;
+  height: auto;
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+  background-color: black;
+}
+
+.gjs-pn-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gjs-pn-buttons > span {
+  width: 100%;
+  background-color: #424242;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.gjs-pn-buttons > span:hover {
+  background-color: #373746;
+  transform: scale(1.02);
+}
+
+.gjs-pn-buttons > span:focus {
+  outline: none;
+  box-shadow: 0 0 10px #85848480;
+}
+
+.panel__style::-webkit-scrollbar {
+  width: 3px; /* Set the width of the scrollbar */
+}
+
+.panel__style::-webkit-scrollbar-thumb {
+  background-color: rgba(194, 185, 185, 0.525); /* Thumb color (light and semi-transparent) */
+  border-radius: 100px; /* Rounded edges on the scrollbar */
+}
+
+.panel__style::-webkit-scrollbar-track {
+  background-color: rgb(93, 93, 93); /* Track background, keeping it transparent */
+}

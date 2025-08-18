@@ -1,0 +1,371 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 50px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .header h2 {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .content {
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        .content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .appointment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .appointment-table th, .appointment-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .appointment-table th {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #a8d5ba;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px;
+            }
+            .header h2 {
+                font-size: 22px;
+            }
+            .cta-button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+  
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/The_Mount_Sinai_Hospital.png" alt="Mount Sinai Logo">
+            <h2>Appointment Confirmed</h2>
+        </div>
+
+       
+        <div class="content">
+            <h3>Dear <strong>{patientName}</strong>,</h3>
+            <p>We are excited to confirm your upcoming appointment with <strong>Dr. Thomas Reed</strong> at <strong>Mount Sinai Hospital</strong>.</p>
+
+            
+            <table class="appointment-table">
+                <tr>
+                    <th>Appointment Date</th>
+                    <td>{appointmentDate}</td>
+                </tr>
+                <tr>
+                    <th>Appointment Time</th>
+                    <td>{appointmentTime}</td>
+                </tr>
+                <tr>
+                    <th>Doctor</th>
+                    <td>Dr. Thomas Reed</td>
+                </tr>
+                <tr>
+                    <th>Mode of Visit</th>
+                    <td>In-Person</td>
+                </tr>
+                <tr>
+                    <th>Location</th>
+                    <td>Rochester, Minnesota</td>
+                </tr>
+                <tr>
+                    <th>Referred by</th>
+                    <td>Dr. Sarah Williams</td>
+                </tr>
+            </table>
+
+            <p>We kindly request you to fill out our Patient Intake Form in advance. This ensures we have all the necessary information to provide the best care.</p>
+
+            <a href="#" class="cta-button">Fill Out Patient Intake Form</a>
+
+            <p>If you need to reschedule or cancel, please notify us at least 24 hours before the appointment.</p>
+            <p>For further assistance, you can reach us at <br><strong><a href="tel:+15550101234">(555) 010-1234</a></strong> or <strong><a href="mailto:feedback@mountsinai.net">feedback@mountsinai.net</a></strong>.</p>
+            <p>Thank you for choosing <strong>Mount Sinai Hospital</strong>. We look forward to your visit!</p>
+        </div>
+
+       
+        <div class="footer">
+            <p>&copy; 2024 Mount Sinai Hospital. <br><a href="#">Visit Our Website</a> | <a href="#">View Map</a></p>
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation - Mount Sinai</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        /* Header */
+        .header {
+            background-color: #00b3d0;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header img {
+            max-width: 60px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .header h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Content */
+        .content {
+            padding: 30px 40px;
+            background-color: #f9f9f9;
+        }
+        .content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+        .content p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .appointment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .appointment-table th,
+        .appointment-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        .appointment-table th {
+            background-color: #e6f7ff;
+            color: #333;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #00b3d0;
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #028a98;
+        }
+
+        .footer {
+            background-color: #04285b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                width: 100% !important;
+                padding: 0 10px;
+            }
+            .header {
+                padding: 20px;
+            }
+            .content {
+                padding: 20px;
+            }
+            .cta-button {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/The_Mount_Sinai_Hospital.png" alt="Mount Sinai Hospital">
+            <h2>Appointment Confirmed!</h2>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <h3>Dear <strong>{patientName}</strong>,</h3>
+            <p>We are delighted to confirm your appointment with <strong>Dr. Thomas Reed</strong> at <strong>Mount Sinai Hospital</strong>.<br>
+               Please find the details of your appointment below:</p>
+
+            <!-- Appointment Details Table -->
+            <table class="appointment-table">
+                <tr>
+                    <th>Appointment Date</th>
+                    <td>{appointmentDate}</td>
+                </tr>
+                <tr>
+                    <th>Appointment Time</th>
+                    <td>{appointmentTime}</td>
+                </tr>
+                <tr>
+                    <th>Doctor</th>
+                    <td>Dr. Thomas Reed</td>
+                </tr>
+                <tr>
+                    <th>Mode of Visit</th>
+                    <td>In-Person</td>
+                </tr>
+                <tr>
+                    <th>Location</th>
+                    <td>Rochester, Minnesota</td>
+                </tr>
+                <tr>
+                    <th>Referred By</th>
+                    <td>Dr. Sarah Williams</td>
+                </tr>
+            </table>
+
+            <p>To ensure the best experience during your visit, we kindly ask you to fill out the Patient Intake Form before your appointment. It will help us gather the necessary information and provide the best care possible.</p>
+            
+            <a href="#" class="cta-button">Fill Out Patient Intake Form</a>
+
+            <p>If you need to reschedule or cancel, please let us know at least 24 hours in advance.</p>
+            <p>If you have any questions, you can contact us at <strong><a href="tel:+15550101234">(555) 010-1234</a></strong> or <strong><a href="mailto:feedback@mountsinai.net">feedback@mountsinai.net</a></strong>.</p>
+
+            <p>Thank you for choosing <strong>Mount Sinai Hospital</strong>. We look forward to your visit!</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Mount Sinai Hospital. All rights reserved.</p>
+            <p><a href="#">Visit Our Website</a> | <a href="#">View Map Location</a></p>
+        </div>
+    </div>
+</body>
+</html>
