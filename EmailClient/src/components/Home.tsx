@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 const Home = () => {
-  const [scrolling, setScrolling] = useState(false)
+  const [_scrolling, setScrolling] = useState(false)
 
   useEffect(() => {
     const onScroll = () => {

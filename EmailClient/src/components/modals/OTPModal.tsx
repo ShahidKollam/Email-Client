@@ -20,9 +20,9 @@ const OTPModal: React.FC<OTPModalProps> = ({ closeModal, email, mobileNumber }) 
   const [timerActive, setTimerActive] = useState<boolean>(false)
   const [otpSent, setOtpSent] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
-  
+
   useEffect(() => {
-    let interval: NodeJS.Timeout
+    let interval: ReturnType<typeof setInterval>
     if (timerActive && timer > 0) {
       interval = setInterval(() => {
         setTimer((prev) => prev - 1)
@@ -34,6 +34,7 @@ const OTPModal: React.FC<OTPModalProps> = ({ closeModal, email, mobileNumber }) 
     }
     return () => clearInterval(interval)
   }, [timerActive, timer])
+
 
   const handleOtpMethodSelect = (method: "email" | "mobile") => {
     setOtpMethod(method)
