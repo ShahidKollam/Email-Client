@@ -1,0 +1,107 @@
+services:
+  frontend:
+    container_name: email-frontend
+    image: ${DOCKERHUB_USERNAME}/email-frontend:latest
+    build:
+      context: ./EmailClient
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_SERVER_URL: http://localhost:3000
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    container_name: email-backend
+    image: ${DOCKERHUB_USERNAME}/email-backend:latest
+    build:
+      context: ./EmailServer
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: ${PORT}
+      DB_HOST: mysql
+      DB_USER: ${MYSQL_USER}
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_NAME: ${MYSQL_DATABASE}
+      DB_PORT: ${DB_PORT}
+      JWT_SECRET: ${JWT_SECRET}
+      NODEMAILER_USER: ${NODEMAILER_USER}
+      NODEMAILER_PASSWORD: ${NODEMAILER_PASSWORD}
+      TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
+      TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
+      TWILIO_PHONE_NUMBER: ${TWILIO_PHONE_NUMBER}
+      RABBITMQ_URL: ${RABBITMQ_URL}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  email-consumer:
+    container_name: email-consumer
+    image: ${DOCKERHUB_USERNAME}/email-consumer:latest
+    build:
+      context: ./EmailServer
+      dockerfile: Dockerfile
+    working_dir: /usr/src/app
+    command: ["node", "messageQueue/email/emailConsumer.js"]
+    environment:
+      RABBITMQ_URL: ${RABBITMQ_URL}
+      NODEMAILER_USER: ${NODEMAILER_USER}
+      NODEMAILER_PASSWORD: ${NODEMAILER_PASSWORD}
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - app-network
+
+
+  mysql:
+    container_name: email-mysql
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  rabbitmq:
+    container_name: email-rabbitmq
+    image: rabbitmq:3-management
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
+    driver: bridge

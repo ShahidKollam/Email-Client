@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build-frontend-backend:
@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ✅ Backend setup + cache
+      # Backend setup
       - name: Set up Node.js (backend)
         uses: actions/setup-node@v4
         with:
@@ -29,7 +29,7 @@ jobs:
         working-directory: ./EmailServer
         run: npm test
 
-      # ✅ Frontend setup + cache
+      # Frontend setup
       - name: Set up Node.js (frontend)
         uses: actions/setup-node@v4
         with:
@@ -45,7 +45,6 @@ jobs:
         working-directory: ./EmailClient
         run: npm run build
 
-        
   docker-build-and-push:
     runs-on: ubuntu-latest
     needs: build-frontend-backend
@@ -53,17 +52,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # ✅ Use secrets you set in GitHub repo
+      # Log in to Docker Hub using secrets
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      # Build and push images with only 'latest' tag
       - name: Build and push Docker images
         run: |
           docker compose build
+          docker tag email-backend ${{ secrets.DOCKERHUB_USERNAME }}/email-backend:latest
+          docker tag email-frontend ${{ secrets.DOCKERHUB_USERNAME }}/email-frontend:latest
+          docker tag email-consumer ${{ secrets.DOCKERHUB_USERNAME }}/email-consumer:latest
+
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/email-backend:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/email-frontend:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/email-consumer:latest
-
