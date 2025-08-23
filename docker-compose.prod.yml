@@ -1,10 +1,9 @@
+version: "3.9"
+
 services:
   frontend:
     container_name: email-frontend
     image: ${DOCKERHUB_USERNAME}/email-frontend:latest
-    build:
-      context: ./EmailClient
-      dockerfile: Dockerfile
     ports:
       - "5173:5173"
     environment:
@@ -17,9 +16,6 @@ services:
   backend:
     container_name: email-backend
     image: ${DOCKERHUB_USERNAME}/email-backend:latest
-    build:
-      context: ./EmailServer
-      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:
@@ -47,9 +43,6 @@ services:
   email-consumer:
     container_name: email-consumer
     image: ${DOCKERHUB_USERNAME}/email-consumer:latest
-    build:
-      context: ./EmailServer
-      dockerfile: Dockerfile
     working_dir: /usr/src/app
     command: ["node", "messageQueue/email/emailConsumer.js"]
     environment:
@@ -61,7 +54,6 @@ services:
         condition: service_healthy
     networks:
       - app-network
-
 
   mysql:
     container_name: email-mysql
