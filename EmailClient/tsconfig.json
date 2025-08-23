@@ -1,0 +1,18 @@
+{
+  // This is the root TypeScript config for your EmailClient project
+  // It references the two sub-configs: app + node (Vite)
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "composite": true,                // required for project references
+    "skipLibCheck": true,             // faster builds
+    "forceConsistentCasingInFileNames": true
+  }
+}
