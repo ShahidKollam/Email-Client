@@ -13,23 +13,30 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      # ✅ Backend setup + cache
+      - name: Set up Node.js (backend)
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm   # ✅ Enables npm cache for faster installs
+          cache: npm
+          cache-dependency-path: ./EmailServer/package-lock.json
 
-      # Backend install + cache
       - name: Install backend dependencies
         working-directory: ./EmailServer
         run: npm install
 
-      # ✅ Run backend tests (server only)
       - name: Run backend tests
         working-directory: ./EmailServer
         run: npm test
 
-      # Frontend install + cache (no tests since you don’t need client tests)
+      # ✅ Frontend setup + cache
+      - name: Set up Node.js (frontend)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ./EmailClient/package-lock.json
+
       - name: Install frontend dependencies
         working-directory: ./EmailClient
         run: npm install
