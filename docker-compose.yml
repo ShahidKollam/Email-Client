@@ -1,6 +1,7 @@
 services:
   frontend:
     container_name: email-frontend
+    image: email-frontend
     build:
       context: ./EmailClient
       dockerfile: Dockerfile
@@ -15,6 +16,7 @@ services:
 
   backend:
     container_name: email-backend
+    image: email-backend
     build:
       context: ./EmailServer
       dockerfile: Dockerfile
@@ -44,6 +46,7 @@ services:
 
   email-consumer:
     container_name: email-consumer
+    image: email-consumer
     build:
       context: ./EmailServer
       dockerfile: Dockerfile

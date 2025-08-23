@@ -63,10 +63,6 @@ jobs:
       - name: Build and push Docker images
         run: |
           docker compose build
-          docker tag email-backend ${{ secrets.DOCKERHUB_USERNAME }}/email-backend:latest
-          docker tag email-frontend ${{ secrets.DOCKERHUB_USERNAME }}/email-frontend:latest
-          docker tag email-consumer ${{ secrets.DOCKERHUB_USERNAME }}/email-consumer:latest
-
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/email-backend:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/email-frontend:latest
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/email-consumer:latest
