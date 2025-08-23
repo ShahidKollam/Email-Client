@@ -9,7 +9,7 @@ const AutomateEmailPage = () => {
       <TemplateSidebar />
 
       {/* Main Content */}
-      <div className="h-[93.5vh] w-[86vw] bg-gray-100 p-8">
+      <div className="h-[93.5vh] w-[82vw] bg-gray-100 p-8">
         <HeaderAutomate />
         <TemplateTabele />
       </div>

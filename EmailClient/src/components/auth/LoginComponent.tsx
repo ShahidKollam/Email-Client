@@ -60,7 +60,7 @@ const LoginComponent: React.FC = () => {
     setLoading(true)
     try {
       const response = await axios.post(AUTH_URL.LOGIN, {
-        email: "Guest@yopmail.com",
+        email: "Guest1@yopmail.com",
         password: "Guest12",
       })
       const user = response.data.user

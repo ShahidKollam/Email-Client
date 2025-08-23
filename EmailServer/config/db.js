@@ -14,7 +14,7 @@ const testConnection = async () => {
     await sequelize.authenticate()
     await sequelize.sync() // `alter: true` will update existing tables to match models, without dropping them.
 
-    await sequelize.sync({ alter: true })
+    // await sequelize.sync({ alter: true })
 
     console.log("SQL DB Connected successfully.")
   } catch (error) {

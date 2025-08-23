@@ -6,7 +6,7 @@ import dotenv from "dotenv"
 import bodyParser from "body-parser"
 import { initializeCronJobs } from "./config/cronjobs.js"
 import { setupSwagger } from "./config/swagger.js"
-// import { connectRabbit } from "./config/rabbitmq.js"
+import { connectRabbit } from "./config/rabbitmq.js"
 
 dotenv.config()
 
@@ -23,7 +23,7 @@ setupSwagger(app)
 
 // for automating email send
 initializeCronJobs()
-// connectRabbit()
+connectRabbit()
 
 app.use(errorHandler)
 

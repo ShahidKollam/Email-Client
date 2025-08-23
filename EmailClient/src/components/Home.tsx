@@ -18,71 +18,84 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-700 text-white w-[90vw] overflow--auto">
-
-
-      {/* New Template Store Feature - Larger and More Attractive */}
-      <section className="py-20 bg-gradient-to-r from-teal-500 via-blue-600 to-indigo-700 text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Discover Our Free Template Store</h2>
-          <p className="text-xl mb-8 px-6 md:px-0 max-w-3xl mx-auto">
-            Browse through an extensive collection of professionally designed email templates. Clone, customize, and
-            launch campaigns that captivate your audience. Start using the templates today and transform your email
-            marketing experience!
+    <div className="bg-gradient-to-t from-gray-950 via-gray-900 to-gray-800 text-white w-[83vw] overflow-  font-sans">
+      {/* Template Store Section */}
+      <section className="py-24 bg-gradient-to-r from-emerald-500 via-teal-600 to-indigo-700 text-white relative">
+        <div className="max-w-6xl mx-auto text-center px-6">
+          <h2 className="text-5xl font-extrabold mb-6 drop-shadow-md">
+            Discover Our Free Template Store
+          </h2>
+          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+            Explore a curated library of professionally crafted email templates.
+            Clone, customize, and launch captivating campaigns effortlessly.
           </p>
           <Link
             to="/general-templates"
-            className="bg-white text-blue-600 text-lg font-semibold py-3 px-8 rounded-lg shadow-xl transition-all hover:bg-blue-100 hover:scale-105"
+            className="bg-white text-indigo-700 text-lg font-semibold py-4 px-10 rounded-full shadow-2xl hover:bg-gray-100 hover:scale-105 transition-all duration-300"
           >
-            Explore the Template Store
+            🚀 Explore Templates
           </Link>
         </div>
       </section>
 
-    
-      {/* Testimonial Section */}
-      <section className="py-12 px-6 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">What Our Users Are Saying</h2>
-          <div className="flex justify-center space-x-6">
-            <div className="bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-300">
-              <p className="text-lg mb-4">
-                "This platform has completely transformed the way we approach email marketing. The templates are
-                beautiful, and the automation is a game changer!"
-              </p>
-              <p className="font-semibold">Sarah J., Marketing Director</p>
-            </div>
-            <div className="bg-gray-800 p-6 rounded-lg shadow-xl transform hover:scale-105 transition-all duration-300">
-              <p className="text-lg mb-4">
-                "The analytics dashboard allows us to track everything in real time. It’s easy to use and powerful!"
-              </p>
-              <p className="font-semibold">John D., Senior Developer</p>
-            </div>
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gray-950 text-white">
+        <div className="max-w-5xl mx-auto text-center px-6">
+          <h2 className="text-4xl font-bold mb-12">What Our Users Are Saying</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                text: `"This platform completely changed our approach to email marketing. Stunning templates + effortless automation!"`,
+                author: "Sarah J., Marketing Director",
+              },
+              {
+                text: `"The analytics dashboard is a powerhouse. Real-time insights that keep us ahead every campaign."`,
+                author: "John D., Senior Developer",
+              },
+            ].map((t, i) => (
+              <div
+                key={i}
+                className="bg-white/10 backdrop-blur-md border border-white/10 p-8 rounded-2xl shadow-lg transform hover:scale-105 hover:shadow-2xl transition-all duration-300"
+              >
+                <p className="text-lg mb-4 italic opacity-90">{t.text}</p>
+                <p className="font-semibold text-emerald-400">{t.author}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-12 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-center">
-        <h3 className="text-2xl font-bold mb-4">Ready to Create Stunning Email Templates?</h3>
-        <p className="text-lg mb-6">Sign up today and take your email marketing to the next level!</p>
+      <section className="py-20 bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-600 text-white text-center">
+        <h3 className="text-3xl md:text-4xl font-extrabold mb-6">
+          Ready to Create Stunning Email Templates?
+        </h3>
+        <p className="text-lg mb-8 opacity-90">
+          Sign up today and take your email marketing to the next level 🚀
+        </p>
         <Link
           to="/sign-up"
-          className="bg-white text-blue-600 font-bold py-2 px-6 rounded-lg shadow-xl transition-all transform hover:bg-blue-100 hover:scale-105"
+          className="bg-white text-indigo-700 font-bold py-4 px-10 rounded-full shadow-2xl hover:bg-gray-100 hover:scale-105 transition-all duration-300"
         >
           Get Started Now
         </Link>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 py-6">
+      <footer className="bg-gray-900 py-8">
         <div className="text-center text-gray-400">
-          <p>&copy; 2024 EmailTemplatePro. All rights reserved.</p>
-          <nav className="mt-4">
-            <Link to="/terms" className="text-gray-400 hover:text-white transition duration-300 mx-4">
+          <p className="mb-3">&copy; 2024 EmailTemplatePro. All rights reserved.</p>
+          <nav className="space-x-6">
+            <Link
+              to="/terms"
+              className="hover:text-white transition duration-300"
+            >
               Terms
             </Link>
-            <Link to="/privacy" className="text-gray-400 hover:text-white transition duration-300 mx-4">
+            <Link
+              to="/privacy"
+              className="hover:text-white transition duration-300"
+            >
               Privacy
             </Link>
           </nav>

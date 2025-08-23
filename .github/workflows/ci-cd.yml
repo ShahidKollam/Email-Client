@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-frontend-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm   # ✅ Enables npm cache for faster installs
+
+      # Backend install + cache
+      - name: Install backend dependencies
+        working-directory: ./EmailServer
+        run: npm install
+
+      # ✅ Run backend tests (server only)
+      - name: Run backend tests
+        working-directory: ./EmailServer
+        run: npm test
+
+      # Frontend install + cache (no tests since you don’t need client tests)
+      - name: Install frontend dependencies
+        working-directory: ./EmailClient
+        run: npm install
+
+      - name: Build frontend
+        working-directory: ./EmailClient
+        run: npm run build

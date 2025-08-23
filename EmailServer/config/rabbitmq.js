@@ -1,30 +1,43 @@
 // rabbitmq.js
-import amqp from "amqplib"
-import dotenv from "dotenv"
-// import consumeQueue from '../messageQueue/email/emailConsumer.js';
+import amqp from "amqplib";
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
-let channel
-let connection
+let channel;
+let connection;
 
-const connectRabbitMQ = async () => {
-  if (!connection || !channel) {
+const RABBITMQ_URL = process.env.RABBITMQ_URL || "amqp://rabbitmq:5672";
+
+const connectRabbitMQ = async (retries = 10, delay = 5000) => {
+  while (retries) {
     try {
-      connection = await amqp.connect(process.env.RABBITMQ_URL || "amqp://localhost")
-      channel = await connection.createChannel()
+      connection = await amqp.connect(RABBITMQ_URL);
+      channel = await connection.createChannel();
+      await channel.assertQueue("emailQueue", { durable: true });
 
-      await channel.assertQueue("emailQueue", { durable: true })
-      console.log("RabbitMQ connected and listening for message.")
-      // consumeQueue("emailQueue")
+      console.log("✅ RabbitMQ connected and listening for messages.");
+      return channel;
     } catch (error) {
-      console.error("Error connecting to RabbitMQ:", error)
-      throw error // Ensure the error is thrown if the connection fails
+      console.error(
+        `❌ RabbitMQ connection failed. Retries left: ${retries - 1}`,
+        error.message
+      );
+      retries -= 1;
+
+      if (retries === 0) throw error;
+
+      // wait before retrying
+      await new Promise((res) => setTimeout(res, delay));
     }
   }
+};
 
-  return channel // Return the channel for consumption
-}
+export const getChannel = async () => {
+  if (!channel) {
+    await connectRabbitMQ();
+  }
+  return channel;
+};
 
-export const getChannel = connectRabbitMQ // Expose the async function to get the channel
-export const connectRabbit = connectRabbitMQ // Export the connection function as well
+export const connectRabbit = connectRabbitMQ;
