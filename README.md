@@ -59,5 +59,5 @@ By taking this from **idea → code → containerization → automated deploymen
 
 1. Clone the repository  
    ```bash
-   git clone https://github.com/your-username/email-app.git
-   cd email-app
+   git clone https://github.com/ShahidKollam/Email-Client.git
+
